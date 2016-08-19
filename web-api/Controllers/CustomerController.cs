@@ -13,7 +13,10 @@ namespace Julio.WebApi.Controllers
         [HttpGet]
         public IList<Customer> Get()
         {
-            return new List<Customer>();
+            var result = new List<Customer>();
+            result.Add(new Customer() { Id = 1, FirstName = "Julio", LastName = "Pozo", DOB = DateTime.Parse("07/21/1972") });
+            result.Add(new Customer() { Id = 2, FirstName = "Michelle", LastName = "Martin", DOB = DateTime.Parse("02/14/1973") });
+            return result;
         }
     }
 }

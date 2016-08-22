@@ -12,11 +12,11 @@ namespace WebApplication
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                //.UseKestrel()
+                .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                //.UseUrls("http://localhost:8080")
+                .UseUrls("http://localhost:80")
                 .Build();
 
             host.Run();

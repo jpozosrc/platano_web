@@ -1,11 +1,6 @@
 .vscode
 
-web-api/*.log
-web-api/project.lock.json
-web-api/obj/
-web-api/bin/
-
-web-app/*.log
-web-app/obj/
-web-app/bin/
-web-app/project.lock.json
+*.log
+obj/
+bin/
+project.lock.json

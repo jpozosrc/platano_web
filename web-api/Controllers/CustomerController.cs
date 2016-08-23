@@ -14,8 +14,8 @@ namespace Julio.WebApi.Controllers
         public IList<Customer> Get()
         {
             var result = new List<Customer>();
-            result.Add(new Customer() { Id = 1, FirstName = "Julio", LastName = "Pozo", DOB = DateTime.Parse("07/21/1972") });
-            result.Add(new Customer() { Id = 2, FirstName = "Michelle", LastName = "Martin", DOB = DateTime.Parse("02/14/1973") });
+            result.Add(new Customer() { Id = 1, FirstName = "John", LastName = "Doe", DOB = DateTime.Parse("03/28/1979") });
+            result.Add(new Customer() { Id = 2, FirstName = "Jane", LastName = "Doe", DOB = DateTime.Parse("04/16/1979") });
             return result;
         }
     }

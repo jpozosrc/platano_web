@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WebApplication
+namespace PlatanoWeb
 {
     public class Program
     {
@@ -16,6 +16,7 @@ namespace WebApplication
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls("http://0.0.0.0:8080")
                 .Build();
 
             host.Run();

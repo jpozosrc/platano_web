@@ -1,3 +1,27 @@
-<div>
-    <h1>Julio's App</h1>
+@model PlatanoWeb.Model.Device
+@{
+
+
+    var deviceIcon = String.Empty;
+
+    switch(Model.Status)
+    {
+        case "CLOSED" :
+            deviceIcon = "images/open.png"; 
+            break;
+        case "OPEN" :
+            deviceIcon = "images/closed.png";
+            break;
+    }
+}
+
+<div class="row">
+    <h1>Julio's</h1>
 </div>
+
+<h1>@ViewBag.Maco</h1>
+
+<br/>
+
+<h3>I want the @Model.Name : <h3>
+<img src="@deviceIcon"/>

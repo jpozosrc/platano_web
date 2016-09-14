@@ -1,30 +1,23 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PlatanoWeb.Model;
+using Platano.Helpers;
 
-namespace WebApplication.Controllers
+namespace PlatanoWeb.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            return View();
-        }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+            var x = "37746";
+            ViewBag.Maco = x.LastX(3);
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var model = new Device();
+            model.Id = Guid.NewGuid();
+            model.Name = "Garage Door";
+            model.Status = "OPEN";
+            return View(model);
         }
 
         public IActionResult Error()

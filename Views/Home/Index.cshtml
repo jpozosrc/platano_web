@@ -1,27 +1,19 @@
-@model PlatanoWeb.Model.Device
-@{
-
-
-    var deviceIcon = String.Empty;
-
-    switch(Model.Status)
-    {
-        case "CLOSED" :
-            deviceIcon = "images/open.png"; 
-            break;
-        case "OPEN" :
-            deviceIcon = "images/closed.png";
-            break;
-    }
-}
-
-<div class="row">
-    <h1>Julio's</h1>
-</div>
-
-<h1>@ViewBag.Maco</h1>
+<h2>Julio's Home Automation</h2>
 
 <br/>
 
-<h3>I want the @Model.Name : <h3>
-<img src="@deviceIcon"/>
+<div class="col-lg-3">
+    <form method="POST" action="">
+
+        <label>Device:</label>
+        <select name="deviceId" class="form-control">
+            <option value="E842524A-59C2-4CED-B5F1-2948F5D7E2BB">Garage Door</option>
+        </select>
+
+        <br/>
+
+        <button type="submit" name="open-btn" class="btn btn-primary">Send Command</button>
+        <button type="submit" name="open-btn" class="btn btn-primary">View Command Queue</button>
+
+    </form>
+</div>

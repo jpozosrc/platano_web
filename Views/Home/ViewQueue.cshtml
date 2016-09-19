@@ -1,0 +1,36 @@
+@model PlatanoWeb.Model.AutomationCommand[]
+
+
+<h2>Command Queue</h2>
+
+<br/>
+
+<button type="button" class="btn btn-primary">Home</button>
+<button type="button" class="btn btn-default">Clear Queue</button>
+
+<br/><br/>
+
+<table class="table table-condensed table-bordered">
+
+    <thead>
+        <th>Date/Time</th>
+        <th>Command</th>
+        <th>Command Arguments</th>
+    </thead> 
+
+@{
+    <tbody>
+    
+    @foreach(PlatanoWeb.Model.AutomationCommand cmd in Model)
+    {
+        <tr>
+            <td>@cmd.TimeStamp</td>
+            <td>@cmd.CommandText</td>
+            <td>@cmd.CommandArgs</td>
+        </tr>
+    }
+
+    </tbody>
+}
+
+</table>

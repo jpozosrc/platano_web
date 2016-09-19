@@ -2,18 +2,28 @@
 
 <br/>
 
-<div class="col-lg-3">
-    <form method="POST" action="">
+<form method="POST" action="">
+    <div class="row">
+        <div class="col-lg-1">
+            <span>Device:</span>
+        </div>
+        <div class="col-lg-3">
+            <select name="deviceId" class="form-control">
+                <option value="E842524A-59C2-4CED-B5F1-2948F5D7E2BB">Garage Door</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" name="open-btn" class="btn btn-primary">Send Command</button> 
+        </div>
+    </div>
+</form>
 
-        <label>Device:</label>
-        <select name="deviceId" class="form-control">
-            <option value="E842524A-59C2-4CED-B5F1-2948F5D7E2BB">Garage Door</option>
-        </select>
+<div class="row">
+    <br/><br/><br/>
+</div>
 
-        <br/>
-
-        <button type="submit" name="open-btn" class="btn btn-primary">Send Command</button>
+<div class="row">
+    <form method="POST" action="/Home/ViewQueue">
         <button type="submit" name="open-btn" class="btn btn-primary">View Command Queue</button>
-
     </form>
 </div>

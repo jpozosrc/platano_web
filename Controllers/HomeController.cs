@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace PlatanoWeb.Controllers
 {
@@ -47,7 +49,7 @@ namespace PlatanoWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> ViewQueue()
         {
-            AutomationCommand cmds = null;
+            AutomationCommand[] cmds = null;
 
             using (var client = new HttpClient())
             {
@@ -60,7 +62,7 @@ namespace PlatanoWeb.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    cmds = JsonConvert.DeserializeObject(json) as AutomationCommand;
+                    cmds = JsonConvert.DeserializeObject<AutomationCommand[]>(json);
                 }
             }
 

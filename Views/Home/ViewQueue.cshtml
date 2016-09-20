@@ -5,32 +5,42 @@
 
 <br/>
 
-<button type="button" class="btn btn-primary">Home</button>
-<button type="button" class="btn btn-default">Clear Queue</button>
+@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary" })
 
 <br/><br/>
 
-<table class="table table-condensed table-bordered">
+<table class="table table-condensed table-bordered table-striped">
 
     <thead>
         <th>Date/Time</th>
+        <th>User</th>
         <th>Command</th>
         <th>Command Arguments</th>
+        <th></th>
     </thead> 
 
-@{
     <tbody>
     
-    @foreach(PlatanoWeb.Model.AutomationCommand cmd in Model)
+    @if(Model.Length > 0)
+    {
+        @foreach(PlatanoWeb.Model.AutomationCommand cmd in Model)
+        {
+            <tr>
+                <td>@cmd.TimeStamp</td>
+                <td>@cmd.UserName</td>
+                <td>@cmd.CommandText</td>
+                <td>@cmd.CommandArgs</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Home", new { Id = @cmd.Id })</td>
+            </tr>
+        }
+    }
+    else
     {
         <tr>
-            <td>@cmd.TimeStamp</td>
-            <td>@cmd.CommandText</td>
-            <td>@cmd.CommandArgs</td>
+            <td colspan="5" class="alert alert-danger strong">No commands in the queue</td>
         </tr>
     }
 
     </tbody>
-}
 
 </table>

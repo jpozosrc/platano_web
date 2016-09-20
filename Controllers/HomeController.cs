@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 
 namespace PlatanoWeb.Controllers
 {
@@ -46,7 +44,23 @@ namespace PlatanoWeb.Controllers
             return View();
         } 
 
-        [HttpPost]
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8079");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var uri = String.Format("/api/automationcommand/{0}", id.ToString());
+                var response = await client.DeleteAsync(uri);
+                Console.Out.WriteLine(uri);
+            }
+
+            return RedirectToAction("ViewQueue");
+        }
+
+        [HttpGet]
         public async Task<IActionResult> ViewQueue()
         {
             AutomationCommand[] cmds = null;
